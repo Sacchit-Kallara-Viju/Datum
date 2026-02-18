@@ -1,0 +1,118 @@
+:root {
+    --bg: #1f2937;
+    --bg-card: #374151;
+    --text: #ffffff;
+    --accent-start: #00c6ff;
+    --accent-end: #0072ff;
+}
+.light {
+    --bg: #f7fafc;
+    --bg-card: #ffffff;
+    --text: #0f172a;
+}
+* { box-sizing: border-box }
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    display: flex;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.sidebar {
+    width: 240px;
+    background: #111827;
+    color: var(--text);
+    padding: 24px;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar a, .sidebar button {
+    display: block;
+    color: var(--text);
+    margin: 12px 0;
+    text-decoration: none;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+}
+
+.center {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.logo {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(45deg,var(--accent-start),var(--accent-end));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.btn {
+    background: linear-gradient(45deg,var(--accent-start),var(--accent-end));
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform .1s ease, box-shadow .2s ease;
+    display: inline-block;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.15) }
+.btn.small { padding: 8px 12px; font-size: 14px }
+
+.card {
+    background: var(--bg-card);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.dashboard {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.config {
+    width: 320px;
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.chart-area {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 360px;
+}
+.footer {
+    margin-top: 32px;
+    opacity: .7;
+    font-size: 14px;
+}
+select, input[type="file"] {
+    width: 100%;
+    margin: 8px 0 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background: transparent;
+    color: var(--text);
+}
+p.error {
+    background: #7f1d1d;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+}

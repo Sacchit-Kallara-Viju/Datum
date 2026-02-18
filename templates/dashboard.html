@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+
+<div class="config">
+    <h3>Chart Configuration</h3>
+    <form method="POST">
+        <label for="chart_type">Chart Type</label>
+        <select id="chart_type" name="chart_type">
+            <option>Bar</option>
+            <option>Line</option>
+            <option>Scatter</option>
+            <option>Histogram</option>
+        </select>
+
+        <label for="x_column">X Column</label>
+        <select id="x_column" name="x_column">
+            {% for col in columns %}
+            <option value="{{ col }}">{{ col }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="y_column">Y Column (skip for Histogram)</label>
+        <select id="y_column" name="y_column">
+            {% for col in columns %}
+            <option value="{{ col }}">{{ col }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn">Generate</button>
+    </form>
+
+    <a href="/export/pdf" class="btn export">Export PDF</a>
+    <a href="/export/jpeg" class="btn export">Export JPEG</a>
+    <a href="/export/word" class="btn export">Export Word</a>
+    {% if error %}
+    <p class="error" style="margin-top:12px">{{ error }}</p>
+    {% endif %}
+</div>
+
+<div class="chart-area">
+    {% if graph_html %}
+        {{ graph_html | safe }}
+    {% else %}
+        <p>No chart generated yet.</p>
+    {% endif %}
+</div>
+
+</div>
+
+{% endblock %}

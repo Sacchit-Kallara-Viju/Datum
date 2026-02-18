@@ -1,0 +1,7 @@
+Flask
+pandas
+plotly
+kaleido
+python-docx
+reportlab
+gunicorn

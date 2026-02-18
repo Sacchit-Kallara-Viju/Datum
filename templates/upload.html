@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Upload CSV File</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="dropzone">
+        <label for="file">Select a CSV dataset</label>
+        <input id="file" type="file" name="file" accept=".csv" required>
+        <button type="submit" class="btn">Analyze</button>
+    </form>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if uploaded %}
+    <div class="summary">
+        <h3>Cleaned Data Summary</h3>
+        <p>Rows: {{ summary.rows }}</p>
+        <p>Columns: {{ summary.columns }}</p>
+        <p>Column Names: {{ summary.column_names }}</p>
+        <div style="overflow:auto; max-height:320px; margin:12px 0; border-radius:8px;">
+            {{ sample_html | safe }}
+        </div>
+        <a href="/dashboard" class="btn">Go to Dashboard</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

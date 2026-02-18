@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+<div class="sidebar">
+    <h2>Datum</h2>
+    <a href="/">Home</a>
+    <a href="/upload">Upload</a>
+    <a href="/dashboard">Dashboard</a>
+    <button id="themeToggle" class="btn small">Toggle Theme</button>
+</div>
+<div class="main">
+    {% block content %}{% endblock %}
+    <footer class="footer">© {{ 2026 }} Datum • Data Science Toolkit</footer>
+    </div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
